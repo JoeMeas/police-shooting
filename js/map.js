@@ -26,7 +26,7 @@ var getData = function(map) {
     success:function(dat) {
        data = dat;
        data.map(function(d){
-         var circle = new L.circle([d.latitude, d.longitude], 200, {color:'red', opacity:.5}).addTo(map)
+         var circle = new L.circle([d.lat, d.long], 200, {color:'red', opacity:.5}).addTo(map)
        })
        customBuild();
     }, 
