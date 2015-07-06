@@ -27,7 +27,7 @@ var getData = function(map) {
        data = dat;
        data.map(function(d){
        	 var markerColor = 'red';
-       	 if(d.armed = 'unarmed'){
+       	 if(d["Armed or Unarmed?"] == 'Unarmed'){
        	 	markerColor = 'blue';
        	 }
          var marker = new L.circle([d.lat, d.lng], 200, {color:markerColor, opacity:.5}).addTo(map)
