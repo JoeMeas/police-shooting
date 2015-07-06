@@ -31,7 +31,7 @@ var getData = function(map) {
  				iconUrl: 'img/armed.png',
  				iconSize:[15, 15],
  				popupAnchor:[-3, -7]
- 			})
+ 			});
 
 	       	if(d["Armed or Unarmed?"] == 'Unarmed'){
 	       		markerIcon('iconUrl', 'img/unarmed.png');
