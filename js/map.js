@@ -49,7 +49,7 @@ var getData = function(map) {
 	        }else{
 	       		markerSummary = markerSummary + d["Summary"];
 	       	}
-	       	popup.append($('<p class="popup-line"></p>').text(markerSummary);
+	       	popup.append($('<p class="popup-line"></p>').text(markerSummary));
 
         	var marker = new L.marker([d.lat, d.lng], {icon:markerIcon}).addTo(map).bindPopup(popup);
         })
