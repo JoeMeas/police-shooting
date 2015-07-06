@@ -3,7 +3,7 @@
 var drawMap = function() {
   // Create map and set viewd
   var map = L.map('container');
-  map.setView([47.6, -122.3], 6); //12
+  map.setView([39.50, -98.35], 4); //12
 
 
   // Create an tile layer variable using the appropriate url
@@ -26,7 +26,11 @@ var getData = function(map) {
     success:function(dat) {
        data = dat;
        data.map(function(d){
-         var circle = new L.circle([d.lat, d.lng], 200, {color:'red', opacity:.5}).addTo(map)
+       	 var markerColor = 'red';
+       	 if(d.armed = 'unarmed'){
+       	 	markerColor = 'blue';
+       	 }
+         var marker = new L.circle([d.lat, d.lng], 200, {color:markerColor, opacity:.5}).addTo(map)
        })
        customBuild();
     }, 
