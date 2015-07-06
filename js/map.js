@@ -27,9 +27,14 @@ var getData = function(map) {
         data = dat;
         data.map(function(d){
 
-	       	var markerImage = new Icon({iconUrl: 'img/armed.png'});
+ 			var markerIcon = L.icon({
+ 				iconUrl: 'img/armed.png',
+ 				iconSize:[15, 15],
+ 				popupAnchor:[-3, -7]
+ 			})
+
 	       	if(d["Armed or Unarmed?"] == 'Unarmed'){
-	       		markerImage = new Icon({iconUrl: 'img/unarmed.png'});
+	       		markerIcon('iconUrl', 'img/unarmed.png');
 	       	}
 
 	       	var markerSummary = "Summary: "
@@ -39,7 +44,7 @@ var getData = function(map) {
 	       		markerSummary = markerSummary + d["Summary"];
 	       	}
 
-        	var marker = new L.circle([d.lat, d.lng], {icon:markerImage, iconSize:[15, 15], popupAnchor:[-3, -7]}).addTo(map).bindPopup(markerSummary);
+        	var marker = new L.marker([d.lat, d.lng], {icon:markerIcon}).addTo(map).bindPopup(markerSummary);
         })
         customBuild();
     }, 
