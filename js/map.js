@@ -15,14 +15,6 @@ var drawMap = function() {
   getData(map);
 }
 
-// Create icon object
-var LeafIcon = L.Icon.extend({
-    options: {
-        iconSize:     [15, 15],
-        popupAnchor:[-3, -7]
-    }
-});
-
 // Function for getting data
 var getData = function(map) {
 
@@ -35,9 +27,9 @@ var getData = function(map) {
         data = dat;
         data.map(function(d){
 
-	       	var markerImage = new LeafIcon({iconUrl: 'img/armed.png'});
+	       	var markerImage = new Icon({iconUrl: 'img/armed.png'});
 	       	if(d["Armed or Unarmed?"] == 'Unarmed'){
-	       		markerImage = new LeafIcon({iconUrl: 'img/unarmed.png'});
+	       		markerImage = new Icon({iconUrl: 'img/unarmed.png'});
 	       	}
 
 	       	var markerSummary = "Summary: "
@@ -47,7 +39,7 @@ var getData = function(map) {
 	       		markerSummary = markerSummary + d["Summary"];
 	       	}
 
-        	var marker = new L.circle([d.lat, d.lng], {icon:markerImage}).addTo(map).bindPopup(markerSummary);
+        	var marker = new L.circle([d.lat, d.lng], {icon:markerImage, iconSize:[15, 15], popupAnchor:[-3, -7]}).addTo(map).bindPopup(markerSummary);
         })
         customBuild();
     }, 
