@@ -34,7 +34,11 @@ var getData = function(map) {
  			});
 
 	       	if(d["Armed or Unarmed?"] == 'Unarmed'){
-	       		markerIcon('iconUrl', 'img/unarmed.png');
+	       		markerIcon = L.icon({
+	 				iconUrl: 'img/unarmed.png',
+	 				iconSize:[15, 15],
+	 				popupAnchor:[-3, -7]
+	 			});
 	       	}
 
 	       	var markerSummary = "Summary: "
