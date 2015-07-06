@@ -25,7 +25,7 @@ var getData = function(map) {
     type: "get",
     success:function(dat) {
         data = dat;
-        data.map(customBuild(d){)
+        data.map(customBuild(d));
     }, 
     dataType:"json"
   }) 
