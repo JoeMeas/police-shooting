@@ -26,18 +26,20 @@ var getData = function(map) {
     success:function(dat) {
         data = dat;
         data.map(function(d){
-	       	var markerColor = 'red';
+
+	       	var markerImage = new LeafIcon({iconUrl: 'img/armed.png'});
 	       	if(d["Armed or Unarmed?"] == 'Unarmed'){
-	       		markerColor = 'blue';
+	       		markerImage = = new LeafIcon({iconUrl: 'img/unarmed.png'});
 	       	}
 
 	       	var markerSummary = "Summary: "
-	       	if(!d["Summary"]){
+	       	if(d["Summary"] == undefined){
 	       	 	markerSummary = markerSummary + "None";
-	        }
-	       	markerSummary = markerSummary + d["Summary"];
+	        }else{
+	       		markerSummary = markerSummary + d["Summary"];
+	       	}
 
-        	var marker = new L.circle([d.lat, d.lng], 400, {color:markerColor, popupAnchor:[-3, -7], opacity:.5}).addTo(map).bindPopup(markerSummary);
+        	var marker = new L.circle([d.lat, d.lng], {icon:markerImage, iconSize:[15, 15], popupAnchor:[-3, -7]}).addTo(map).bindPopup(markerSummary);
         })
         customBuild();
     }, 
