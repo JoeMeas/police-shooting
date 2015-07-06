@@ -24,15 +24,22 @@ var getData = function(map) {
     url:'./data/response.json',
     type: "get",
     success:function(dat) {
-       data = dat;
-       data.map(function(d){
-       	 var markerColor = 'red';
-       	 if(d["Armed or Unarmed?"] == 'Unarmed'){
-       	 	markerColor = 'blue';
-       	 }
-         var marker = new L.circle([d.lat, d.lng], 400, {color:markerColor, popupAnchor:[-3, -7], opacity:.5}).addTo(map).bindPopup(d["Summary"]);
-       })
-       customBuild();
+        data = dat;
+        data.map(function(d){
+	       	var markerColor = 'red';
+	       	if(d["Armed or Unarmed?"] == 'Unarmed'){
+	       		markerColor = 'blue';
+	       	}
+
+	       	var markerSummary = "Summary: "
+	       	if(!d["Summary"]){
+	       	 	markerSummary = markerSummary + "None";
+	        }
+	       	markerSummary = markerSummary + d["Summary"];
+
+        	var marker = new L.circle([d.lat, d.lng], 400, {color:markerColor, popupAnchor:[-3, -7], opacity:.5}).addTo(map).bindPopup(markerSummary);
+        })
+        customBuild();
     }, 
     dataType:"json"
   }) 
