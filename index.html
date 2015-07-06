@@ -8,17 +8,32 @@
     <!-- Get the leaflet.js library and stylesheet -->
     <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
     <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
+
+    <!-- Get twitter bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
     <link rel="stylesheet" href="css/main.css"/>
   </head>
 
   <body>
-    <h1>Map of Armed and Unarmed Police Shootings</h1>
-    <div id="container" style="width:1000px; height:500px;"></div>
+    <div>
+      <h1 id="title">Map of Armed and Unarmed Police Shootings</h1>
+      <p id="info">This map shows the locations of police shootings involving armed and unarmed individuals. Police shootings of unarmed suspects have attracted greater public scruitiny recently, opening conversations on police brutality and accountability. Armed shootings are denoted by a red handgun icon while unarmed shootings are denoted by a blue empty palm icon. Information such as the date of the incident, the race of the individual involved, whether the individual survived, and a summary report are provided by clicking on each individual map marker.</p>
+    </div>
+    
+    <div class="col-md-6" id="container" style="width:1000px; height:500px;"></div>
     <script>
-      
     	// This is where you should execute your drawMap function // 
       drawMap();
     </script>
-    <p>This map was created using data collected from <a href='http://regressing.deadspin.com/deadspin-police-shooting-database-update-were-still-go-1627414202'>Deadspin Police Shooting Database</a></p>
+
+    <div class="col-md-3" id="extra">
+      <h2>Future Vision</h2>
+      <p>This project is a very early draft. If there was more time, better icons and images would be used to better contextualize the information provided on the map. There would be less reliance on modal text popups and more focus on visual cues such as color, age, etc. Data trends would also be visualized using graphs to compare statistics and features such as varaible filters would be implemented. But for now, enjoy this simple presentation of armed and unarmed police shootings across the United States.</p>
+    </div>
+
+    <div class="col-md-12">
+      <p>This map was created using data collected from <a href='http://regressing.deadspin.com/deadspin-police-shooting-database-update-were-still-go-1627414202'>Deadspin Police Shooting Database</a></p>
+    </div>
   </body>
 </html>

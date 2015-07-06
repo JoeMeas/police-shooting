@@ -1,4 +1,17 @@
 /* You'll probably want to add some styles here */
 body{
+	margin-left: 30px;
 	font-family: 'Helvetica', 'Calibri', 'Arial' , 'sans-serif';
+}
+
+#title{
+	/*currently unused*/
+}
+
+#info{
+	width: 70%;
+}
+
+#extra{
+
 }
