@@ -30,7 +30,7 @@ var getData = function(map) {
        	 if(d["Armed or Unarmed?"] == 'Unarmed'){
        	 	markerColor = 'blue';
        	 }
-         var marker = new L.circle([d.lat, d.lng], 200, {color:markerColor, opacity:.5}).addTo(map)
+         var marker = new L.circle([d.lat, d.lng], 200, {color:markerColor, popupAnchor:[-3, -7], opacity:.5}, ).addTo(map).bindPopup("Test Information");
        })
        customBuild();
     }, 
