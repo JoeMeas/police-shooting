@@ -43,6 +43,30 @@ var getData = function(map) {
 
 	       	var popup = $('<div />');
 
+			var markerDate = "Date: ";
+	       	if(d["Date Searched"] == undefined){
+	       	 	markerDate = markerDate + "Unknown";
+	        }else{
+	       		markerDate = markerDate + d["Date Searched"];
+	       	}
+	       	popup.append($('<p class="popup-line"></p>').text(markerDate));
+
+			var markerRace = "Race: ";
+			if(d["Race"] == undefined){
+	       	 	markerRace = markerRace + "Unknown";
+	        }else{
+	       		markerRace = markerRace + d["Race"];
+	       	}
+	       	popup.append($('<p class="popup-line"></p>').text(markerRace));
+
+	       	var markerDead = "Alive or Dead: ";
+	       	if(d["Race"] == undefined){
+	       	 	markerDead = markerDead + "Unknown";
+	        }else{
+	       		markerDead = markerDead + d["Hit or Killed?"];
+	       	}
+	       	popup.append($('<p class="popup-line"></p>').text(markerDead));
+
 	       	var markerSummary = "Summary: "
 	       	if(d["Summary"] == undefined){
 	       	 	markerSummary = markerSummary + "None";
@@ -51,7 +75,7 @@ var getData = function(map) {
 	       	}
 	       	popup.append($('<p class="popup-line"></p>').text(markerSummary));
 
-        	var marker = new L.marker([d.lat, d.lng], {icon:markerIcon}).addTo(map).bindPopup(popup);
+        	var marker = new L.marker([d.lat, d.lng], {icon:markerIcon}).addTo(map).bindPopup(popup[0]);
         })
         customBuild();
     }, 
