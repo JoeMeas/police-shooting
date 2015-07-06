@@ -26,7 +26,7 @@ var getData = function(map) {
     success:function(dat) {
         data = dat;
         data.map(function(d){
-        	customBuild(d);	
+        	customBuild(d, map);	
         })
     }, 
     dataType:"json"
@@ -36,7 +36,7 @@ var getData = function(map) {
 }
 
 // Do something creative with the data here!  
-var customBuild = function(d) {
+var customBuild = function(d, map) {
 
     var markerIcon = L.icon({
 			iconUrl: 'img/armed.png',
