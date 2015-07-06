@@ -41,14 +41,17 @@ var getData = function(map) {
 	 			});
 	       	}
 
+	       	var popup = $('<div />');
+
 	       	var markerSummary = "Summary: "
 	       	if(d["Summary"] == undefined){
 	       	 	markerSummary = markerSummary + "None";
 	        }else{
 	       		markerSummary = markerSummary + d["Summary"];
 	       	}
+	       	popup.append($('<p class="popup-line"></p>').text(markerSummary);
 
-        	var marker = new L.marker([d.lat, d.lng], {icon:markerIcon}).addTo(map).bindPopup(markerSummary);
+        	var marker = new L.marker([d.lat, d.lng], {icon:markerIcon}).addTo(map).bindPopup(popup);
         })
         customBuild();
     }, 
